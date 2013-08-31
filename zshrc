@@ -1,13 +1,30 @@
-# load our own completion functions
-fpath=(~/.zsh/completion $fpath)
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.dotfiles/.oh-my-zsh
 
-# completion
-autoload -U compinit
-compinit
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="bkon"
 
-for function in ~/.zsh/functions/*; do
-  source $function
-done
+# Never know when you're gonna need to popd!
+setopt AUTO_PUSHD
+export dirstacksize=5
+
+# awesome cd movements from zshkit
+setopt AUTOCD
+setopt AUTOPUSHD PUSHDMINUS PUSHDSILENT PUSHDTOHOME
+setopt cdablevars
+
+# Show contents of directory after cd-ing into it
+chpwd() {
+  ls -lrthG
+}
+
+# Save a ton of history
+HISTSIZE=20000
+HISTFILE=~/.zsh_history
+SAVEHIST=20000
 
 # automatically enter directories without cd
 setopt auto_cd
@@ -15,11 +32,6 @@ setopt auto_cd
 # use vim as the visual editor
 export VISUAL=vim
 export EDITOR=$VISUAL
-
-# vi mode
-bindkey -v
-bindkey "^F" vi-cmd-mode
-bindkey jj vi-cmd-mode
 
 # use incremental search
 bindkey "^R" history-incremental-search-backward
@@ -34,38 +46,76 @@ bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word
 bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 
-# expand functions in the prompt
-setopt prompt_subst
+plugins=(git ruby brew bundler gem heroku node npm osx svn rake rbenv mvn sublime)
 
-# prompt
-export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
+source $ZSH/oh-my-zsh.sh
 
-# ignore duplicate history entries
-setopt histignoredups
+# Source my custom files after oh-my-zsh so I can override things.
+source $HOME/.dotfiles/zsh/aliases
+source $HOME/.dotfiles/zsh/functions
 
-# keep TONS of history
-export HISTSIZE=4096
+# Customize to your needs...
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
 
-# look for ey config in project dirs
-export EYRC=./.eyrc
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home"
+export JAVA_OPTS="-Xms2048M -Xmx6144M -XX:MaxPermSize=6144M"
+export MAVEN_OPTS="-Xms2048M -Xmx6144M -XX:MaxPermSize=6144M"
+export M2_HOME="/usr/local/Cellar/maven/3.1.0/libexec"
+# export M2_HOME="/usr/share/maven/"
+export EDITOR='subl -w'
+export COPYFILE_DISABLE=true
+export RBENV_ROOT=/usr/local/var/rbenv
 
-# automatically pushd
-setopt auto_pushd
-export dirstacksize=5
+if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 
-# awesome cd movements from zshkit
-setopt AUTOCD
-setopt AUTOPUSHD PUSHDMINUS PUSHDSILENT PUSHDTOHOME
-setopt cdablevars
+# Shaves about 0.5s off Rails boot time (when using perf patch). Taken from https://gist.github.com/1688857
+export RUBY_HEAP_MIN_SLOTS=1000000
+export RUBY_HEAP_SLOTS_INCREMENT=1000000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=1000000000
+export RUBY_HEAP_FREE_MIN=500000
+
+
+## original from thoughtbot
+
+
+# vi mode
+#bindkey -v
+#bindkey "^F" vi-cmd-mode
+#bindkey jj vi-cmd-mode
+#
+## expand functions in the prompt
+#setopt prompt_subst
+#
+## prompt
+#export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
+#
+## ignore duplicate history entries
+#setopt histignoredups
+#
+## keep TONS of history
+#export HISTSIZE=4096
+#
+## look for ey config in project dirs
+#export EYRC=./.eyrc
+#
+## automatically pushd
+#setopt auto_pushd
+#export dirstacksize=5
+#
+## awesome cd movements from zshkit
+#setopt AUTOCD
+#setopt AUTOPUSHD PUSHDMINUS PUSHDSILENT PUSHDTOHOME
+#setopt cdablevars
 
 # Try to correct command line spelling
-setopt CORRECT CORRECT_ALL
-
-# Enable extended globbing
-setopt EXTENDED_GLOB
-
-# aliases
-[[ -f ~/.aliases ]] && source ~/.aliases
-
-# Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+#setopt CORRECT CORRECT_ALL
+#
+## Enable extended globbing
+#setopt EXTENDED_GLOB
+#
+## aliases
+#[[ -f ~/.aliases ]] && source ~/.aliases
+#
+## Local config
+#[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
