@@ -62,6 +62,13 @@ for function in ~/.zsh/functions/*; do
 done
 #source $HOME/.dotfiles/zsh/functions
 
+# load our own completion functions
+fpath=(~/.zsh/completion $fpath)
+
+# completion
+autoload -U compinit
+compinit
+
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
 
