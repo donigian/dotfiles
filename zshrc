@@ -47,13 +47,20 @@ bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word
 bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 
-plugins=(git ruby brew bundler gem heroku node npm osx svn rake rbenv mvn sublime)
+plugins=(ruby brew bundler gem heroku node npm osx svn rake rbenv mvn sublime)
 
 source $ZSH/oh-my-zsh.sh
 
 # Source my custom files after oh-my-zsh so I can override things.
-source $HOME/.dotfiles/zsh/aliases
-source $HOME/.dotfiles/zsh/functions
+for alias in ~/.zsh/aliases/*; do
+  source $alias
+done
+#source $HOME/.dotfiles/zsh/aliases
+
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+#source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin
