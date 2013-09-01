@@ -1,7 +1,6 @@
-[push]
-  default = current
-[color]
-  ui = auto
+[user]
+  name = Bryan Konowitz
+  email = konowitzb@gmail.com
 [alias]
   aa = add --all
   ap = add --patch
@@ -14,10 +13,26 @@
   pr = !hub pull-request
   st = status
   up = !git fetch origin && git rebase origin/master
+[color]
+  ui = auto
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
-[merge]
-  ff = only
+[diff]
+  tool = diffmerge
+[difftool "diffmerge"]
+  cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[difftool]
+  prompt = false
 [include]
   path = .gitconfig.local
+[merge]
+  tool = diffmerge
+  ff = only
+[mergetool "diffmerge"]
+  cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+  trustexitcode = true
+[push]
+  default = current
+[pull]
+  default = current
