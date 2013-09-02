@@ -45,6 +45,7 @@ vmap <F2> :w !pbcopy<CR><CR>
 map <Leader>ra :%s/
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rs :vsp <C-r>#<cr><C-w>w
+map <Leader>so :so %<cr>
 map <Leader>t :w<cr>:call RunCurrentTest()<CR>
 map <Leader>u :Runittest<cr>
 map <Leader>w <C-w>w
@@ -173,9 +174,9 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 " vim-rspec mappings
-nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>s :call RunNearestSpec()<CR>
-nnoremap <Leader>l :call RunLastSpec()<CR>
+" nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
+" nnoremap <Leader>s :call RunNearestSpec()<CR>
+" nnoremap <Leader>l :call RunLastSpec()<CR>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -206,6 +207,7 @@ set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 
 command! Q q " Bind :Q to :q
 command! Qall qall
+cmap q1 q!
 
 " Disable Ex mode
 map Q <Nop>

@@ -12,6 +12,8 @@ alias tf='tail -1000f'
 alias tlf="tail -f"
 alias ln='ln -v'
 alias mkdir='mkdir -p'
+alias md='mkdir -p'
+alias trunc='cat /dev/null >'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias u='cd ..'
@@ -57,6 +59,7 @@ alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres
 # git
 alias gpr='git pull --rebase'
 alias gcot='git checkout -t'
+alias gw='git add . && git commit -m 'WIP' && git push'
 alias patch='git format-patch HEAD^ --stdout > patch.diff'
 alias sync='git add -u . && git commit -m "Minor changes. Commit message skipped." && repush'
 alias repush="gpr && git push"
