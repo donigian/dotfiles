@@ -1,3 +1,7 @@
 log
-tags
+vendor
 tmp
+doc
+coverage
+public/assets
+*.sql
