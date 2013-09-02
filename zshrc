@@ -103,7 +103,7 @@ export RUBY_HEAP_FREE_MIN=500000
 #setopt prompt_subst
 #
 ## prompt
-#export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
+# export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
 #
 ## ignore duplicate history entries
 #setopt histignoredups
