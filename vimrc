@@ -30,6 +30,7 @@ endif
 
 " Leaders
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+map <Leader>bb :BundleInstall <cr>
 map <Leader>bi :!bundle install<cr>
 map <Leader>cu :Tabularize /\|<CR>
 map <Leader>co ggVG"*y " Copy all to clipboard
@@ -57,6 +58,7 @@ map <Leader>cn :e ~/Dropbox/Notes/coding-notes.md<cr> " Consider making this pro
 map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>ec :e ~/code/
 map <Leader>nn :sp ~/Dropbox/Notes/programming_notes.md<cr>
+map <Leader>pn :sp ~/Dropbox/Notes/project_notes.md<cr>
 map <Leader>tsl :sp ~/Dropbox/Notes/tool_sharpening_list.md<cr>
 map <Leader>sn :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>vi :tabe ~/.vimrc<CR>

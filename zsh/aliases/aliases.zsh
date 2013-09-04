@@ -71,7 +71,7 @@ alias bake='bundle exec rake'
 alias be='bundle exec'
 alias bi='bundle install'
 alias bu='bundle update'
-alias bu!!='bundle install && !!'
+alias rebi='bundle install && !!'
 
 # Tests and Specs
 alias t="ruby -I test"
