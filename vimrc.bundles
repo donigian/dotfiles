@@ -25,6 +25,7 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/tComment'
 Bundle 'ervandew/supertab'
+Bundle 'derekwyatt/vim-scala'
 
 " My bundles
 " Bundle 'ervandew/supertab'

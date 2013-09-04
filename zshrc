@@ -6,7 +6,7 @@ ZSH=$HOME/.dotfiles/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="bkon"
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Never know when you're gonna need to popd!
 setopt AUTO_PUSHD
@@ -95,9 +95,9 @@ export RUBY_HEAP_FREE_MIN=500000
 
 
 # vi mode
-#bindkey -v
-#bindkey "^F" vi-cmd-mode
-#bindkey jj vi-cmd-mode
+# bindkey -v
+bindkey "^F" vi-cmd-mode
+# bindkey jj vi-cmd-mode
 #
 ## expand functions in the prompt
 #setopt prompt_subst

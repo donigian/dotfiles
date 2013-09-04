@@ -53,13 +53,14 @@ map <Leader>x :exec getline(".")<cr>
 
 
 " File shortcuts
-map <Leader>cn :e ~/Dropbox/Notes/coding-notes.txt<cr> " Consider making this project specific
+map <Leader>cn :e ~/Dropbox/Notes/coding-notes.md<cr> " Consider making this project specific
 map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>ec :e ~/code/
-map <Leader>nn :sp ~/Dropbox/Notes/programming_notes.txt<cr>
-map <Leader>tsl :sp ~/Dropbox/Notes/tool_sharpening_list.txt<cr>
+map <Leader>nn :sp ~/Dropbox/Notes/programming_notes.md<cr>
+map <Leader>tsl :sp ~/Dropbox/Notes/tool_sharpening_list.md<cr>
 map <Leader>sn :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>vi :tabe ~/.vimrc<CR>
+map <Leader>task :e ~/Dropbox/Notes/tasks.md<CR>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path

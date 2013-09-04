@@ -4,7 +4,7 @@ alias gd='git diff'
 compdef _git gd=git-diff
 alias gl='git pull'
 compdef _git gl=git-pull
-alias gp='git push'
+alias gp!='git push'
 compdef _git gp=git-push
 alias gc='git commit -v'
 compdef _git gc=git-commit
@@ -105,6 +105,8 @@ alias gm!='git merge'
 alias glr='git pull --rebase'
 alias gta='git tag -a'
 alias gpt='git push --tags origin master'
+alias gsfem='git submodule foreach git checkout master'
+alias gsfel='git submodule foreach git pull'
 
 function g {
   if [[ $# > 0 ]]; then
