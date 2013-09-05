@@ -8,7 +8,8 @@ set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitigno
 set history=500
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
-set incsearch   " don't do incremental searching
+set incsearch     " do incremental searching
+set hlsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autoindent " always set autoindenting on
 set ignorecase smartcase
@@ -62,7 +63,7 @@ map <Leader>pn :sp ~/Dropbox/Notes/project_notes.md<cr>
 map <Leader>tsl :sp ~/Dropbox/Notes/tool_sharpening_list.md<cr>
 map <Leader>sn :e ~/.vim/snippets/ruby.snippets<CR>
 map <Leader>vi :tabe ~/.vimrc<CR>
-map <Leader>task :e ~/Dropbox/Notes/tasks.md<CR>
+map <Leader>task :sp ~/Dropbox/Notes/tasks.md<CR>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -208,7 +209,7 @@ au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 
-command! Q q " Bind :Q to :q
+" command! Q q " Bind :Q to :q
 command! Qall qall
 cmap q1 q!
 
