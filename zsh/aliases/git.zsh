@@ -107,8 +107,16 @@ alias gm!='git merge'
 alias glr='git pull --rebase'
 alias gta='git tag -a'
 alias gpt='git push --tags origin master'
-alias gsfem='git submodule foreach git checkout master'
-alias gsfel='git submodule foreach git pull'
+alias gsa='git submodule add'
+alias gsi='git submodule init'
+alias gsu='git submodule update'
+alias gsfb='git submodule foreach git checkout -b'
+alias gsfm='git submodule foreach git checkout master'
+alias gsfp='git submodule foreach git pull'
+alias gsfp!='git submodule foreach git push'
+
+# Deprecated
+alias gp='echo "Use gp! instead"'
 
 function g {
   if [[ $# > 0 ]]; then

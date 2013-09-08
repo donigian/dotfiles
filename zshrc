@@ -19,7 +19,8 @@ setopt cdablevars
 
 # Show contents of directory after cd-ing into it
 chpwd() {
-  ls -lrthG
+  # ls -lrthG
+  ls -al
 }
 
 # Save a ton of history
