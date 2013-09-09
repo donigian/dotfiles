@@ -91,5 +91,25 @@ alias rs='bundle install && rails server -p 3000'
 alias s="rspec"
 alias z="zeus"
 
+# Process management
+function sstart() {
+  cat /dev/null > $1.pid
+  nohup $1 &
+  echo $! >> $1.pid
+}
+
+function kpid() {
+  pid=$(cat $1.pid)
+  echo "** Killing pid " + $pid
+  kill -9 $pid
+  sleep 2
+  ps ax | grep $1
+}
+
+function wpid() {
+  echo $! > $1.pid
+}
+
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
